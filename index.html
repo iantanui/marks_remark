@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KPSEA Assesment</title>
+  </head>
+  <body>
+    <h1>Kenya Primary School Education Assessment (KPSEA)</h1>
+    <form id="assessmentForm">
+      <div class="question">
+        <p>1. The capital city of Kenya?</p>
+        <input type="radio" name="q1" value="correct" /> Kisumu city<br />
+        <input type="radio" name="q1" value="correct" /> Nairobi city<br />
+        <input type="radio" name="q1" value="incorrect" /> Mombasa city<br />
+        <input type="radio" name="q1" value="incorrect" /> Nakuru city
+      </div>
+
+      <div class="question">
+        <p>2. The first president of Kenya was?</p>
+        <input type="radio" name="q1" value="correct" /> Mzee Kenyataa<br />
+        <input type="radio" name="q1" value="correct" /> William Ruto<br />
+        <input type="radio" name="q1" value="incorrect" /> Mwai Kibaki<br />
+        <input type="radio" name="q1" value="incorrect" /> Daniel Moi
+      </div>
+
+      <div class="question">
+        <p>3. The longest river in Kenya is ?</p>
+        <input type="radio" name="q2" value="incorrect" /> R.Athi<br />
+        <input type="radio" name="q2" value="incorrect" /> R.Nzoia<br />
+        <input type="radio" name="q2" value="correct" /> R.Tana<br />
+        <input type="radio" name="q2" value="incorrect" /> R.Sondu
+      </div>
+
+      <div class="question">
+        <p>4. The highest mountain in Kenya?</p>
+        <input type="radio" name="q3" value="incorrect" /> Mt. Kilimanjaro<br />
+        <input type="radio" name="q3" value="incorrect" /> Mt Longonot<br />
+        <input type="radio" name="q2" value="correct" /> Mt Kenya<br />
+        <input type="radio" name="q3" value="incorrect" /> Mt Everest
+      </div>
+
+      <div id="result" class="result"></div>
+      <div id="remark" class="remark"></div>
+
+      <button type="button" onclick="calculateScore()">Submit</button>
+    </form>
+  </body>
+</html>
