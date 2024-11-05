@@ -3,14 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>KPSEA Assesment</title>
+    <title>KPSEA Assessment</title>
+
   </head>
   <body>
+    
     <h1>Kenya Primary School Education Assessment (KPSEA)</h1>
     <form id="assessmentForm">
       <div class="question">
         <p>1. The capital city of Kenya?</p>
-        <input type="radio" name="q1" value="correct" /> Kisumu city<br />
+        <input type="radio" name="q1" value="incorrect" /> Kisumu city<br />
         <input type="radio" name="q1" value="correct" /> Nairobi city<br />
         <input type="radio" name="q1" value="incorrect" /> Mombasa city<br />
         <input type="radio" name="q1" value="incorrect" /> Nakuru city
@@ -18,32 +20,76 @@
 
       <div class="question">
         <p>2. The first president of Kenya was?</p>
-        <input type="radio" name="q1" value="correct" /> Mzee Kenyataa<br />
-        <input type="radio" name="q1" value="correct" /> William Ruto<br />
-        <input type="radio" name="q1" value="incorrect" /> Mwai Kibaki<br />
-        <input type="radio" name="q1" value="incorrect" /> Daniel Moi
+        <input type="radio" name="q2" value="correct" /> Mzee Kenyatta<br />
+        <input type="radio" name="q2" value="incorrect" /> William Ruto<br />
+        <input type="radio" name="q2" value="incorrect" /> Mwai Kibaki<br />
+        <input type="radio" name="q2" value="incorrect" /> Daniel Moi
       </div>
 
       <div class="question">
-        <p>3. The longest river in Kenya is ?</p>
-        <input type="radio" name="q2" value="incorrect" /> R.Athi<br />
-        <input type="radio" name="q2" value="incorrect" /> R.Nzoia<br />
-        <input type="radio" name="q2" value="correct" /> R.Tana<br />
-        <input type="radio" name="q2" value="incorrect" /> R.Sondu
+        <p>3. The longest river in Kenya is?</p>
+        <input type="radio" name="q3" value="incorrect" /> R. Athi<br />
+        <input type="radio" name="q3" value="incorrect" /> R. Nzoia<br />
+        <input type="radio" name="q3" value="correct" /> R. Tana<br />
+        <input type="radio" name="q3" value="incorrect" /> R. Sondu
       </div>
 
       <div class="question">
         <p>4. The highest mountain in Kenya?</p>
-        <input type="radio" name="q3" value="incorrect" /> Mt. Kilimanjaro<br />
-        <input type="radio" name="q3" value="incorrect" /> Mt Longonot<br />
-        <input type="radio" name="q2" value="correct" /> Mt Kenya<br />
-        <input type="radio" name="q3" value="incorrect" /> Mt Everest
+        <input type="radio" name="q4" value="incorrect" /> Mt. Kilimanjaro<br />
+        <input type="radio" name="q4" value="incorrect" /> Mt Longonot<br />
+        <input type="radio" name="q4" value="correct" /> Mt Kenya<br />
+        <input type="radio" name="q4" value="incorrect" /> Mt Everest
       </div>
+      <br>
 
-      <div id="result" class="result"></div>
-      <div id="remark" class="remark"></div>
+      <p> Final Score  <input type="text" id="result" class="result" readonly /> </p>
+
+      <br>
+
+      <p> Remarks : <input type="text" id="remark" class="remark" readonly /> </p>
+
+      <br>
 
       <button type="button" onclick="calculateScore()">Submit</button>
     </form>
+
+
+
+    <script>
+      function calculateScore() {
+
+        const questions = 4;
+        let score = 0;
+        const form = document.getElementById('assessmentForm');
+        
+        // check answers
+        if (form.q1.value === 'correct') score++;
+        if (form.q2.value === 'correct') score++;
+        if (form.q3.value === 'correct') score++;
+        if (form.q4.value === 'correct') score++;
+
+        // percentage score
+        const percentage = (score / questions) * 100;
+        
+        // display score
+        document.getElementById('result').value = `${percentage}%`;
+
+        // grade and display remark
+        let remark;
+        if (percentage === 100) {
+          remark = "Exceeded expectation";
+        } else if (percentage >= 50) {
+          remark = "Met expectation";
+        } else if (percentage >= 40) {
+          remark = "Approaching expectation";
+        } else {
+          remark = "Below expectation";
+        }
+        document.getElementById('remark').value = `${remark}`;
+      }
+    </script>
+
+
   </body>
 </html>
